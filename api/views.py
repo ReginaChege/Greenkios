@@ -38,5 +38,14 @@ class CustomerDetailView(APIView):
         customer=customer.objects.get(id=id)  
         customer.delete()    
         return Response("customer deleted",status=status.HTTP_204_NO_CONTENT_DELETE_) 
-           
+
+class AddToCartView(APIView):
+    def post (self ,request,format=None):
+        cart_id = request.data["cart_id"]
+        product_id=request.data["product_id"]
+        cart=Cart.objects.get(id=cart_id)
+        product=Product.objects.get(id=product_id)
+        updated_cart=cart.add_product(product)
+        serializer=CartSerializer(updated_cart)
+        return Response(serializer.data)
         
