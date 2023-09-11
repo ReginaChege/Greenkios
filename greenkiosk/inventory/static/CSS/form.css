@@ -1,0 +1,61 @@
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .upload-heading {
+    /* text-align: center; */
+    font-size: 32px;
+    margin-left: 50%;
+
+    color: #333;
+  }
+  
+  .upload-form {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upload-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .upload-form input[type="text"],
+  .upload-form input[type="password"],
+  .upload-form input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 12px;
+  }
+  
+  .upload-form button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .upload-form button:hover {
+    background-color: #0056b3;
+  }

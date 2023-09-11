@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/product-detail.css' %}"/> {% endcomment %}
+    <title>Product Detail</title>
+</head>
+<body>
+    <h4>{{ customer.name }}</h4>
+    <p>{{ customer.identification }}</p>
+    <span>{{ customer.email }}</span>
+    <p>{{ customer.location }}</p>
+    <p>{{ customer.contacts }}</p>
+</body>
+</html>

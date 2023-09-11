@@ -1,0 +1,61 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+  
+  h4 {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .upload-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .upload-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .upload-form input[type="text"],
+  .upload-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .upload-form textarea {
+    height: 100px;
+  }
+  
+  .upload-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .upload-form button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+ 
+form {
+    margin: 0 auto;
+    text-align: center;
+  }
+  

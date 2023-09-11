@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mama Mboga Store</title>
+    
+    <style>
+        
+        :root {
+            --primary-color: #f9a826;
+            --secondary-color: #007bff;
+            --background-color: #f9f9f9;
+            --text-color: #333333;
+            --border-color: #dddddd;
+            --box-shadow-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        h2 {
+            margin-top: 40px;
+        }
+        
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+            justify-items: center;
+        }
+        
+        .product {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            box-shadow: 0px 4px 10px var(--box-shadow-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .product:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+        
+        .product-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .product-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .product-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+        
+        .product-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        
+        .navbar {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 10px;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar li {
+            display: inline;
+            margin-right: 10px;
+        }
+        
+        .navbar li a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        
+        .navbar li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="{% url 'product-upload_view' %}">Product</a></li>
+                <li><a href="{% url 'place_order_views' %}">Orders</a></li>
+                <li><a href="{% url 'cart_list_view' %}">Cart</a></li>
+                <li><a href="{% url 'vendor_onboard_view' %}">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Mama Mboga Store</h1>
+        
+        <h2>Fruits</h2>
+        <div class="product-container">
+            {% for product in products %}
+            <div class="product">
+                <img class="product-image" src="{{ product.image.url }}" alt="Product Image">
+                <div class="product-title">{{ product.name }}</div>
+                <div class="product-description">{{ product.description }}</div>
+                <div class="product-price">${{ product.price }}</div>
+                <div class="product-links">
+                  <a href="{% url 'product_detail_view' id=product.id %}"><button>View Details</button></a>
+                  <a href="{% url 'edit_product_view' id=product.id %}"><button>Edit Details</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <h2>Vegetables</h2>
+        <div class="product-container">
+            {% for product in products %}
+            <div class="product">
+                <img class="product-image" src="{{ product.image.url }}" alt="Product Image">
+                <div class="product-title">{{ product.name }}</div>
+                <div class="product-description">{{ product.description }}</div>
+                <div class="product-price">${{ product.price }}</div>
+                <div class="product-links">
+                    <a href="{% url 'product_detail_view' id=product.id %}"><button>View Details</button></a>
+                    <a href="{% url 'edit_product_view' id=product.id %}"><button>Edit Details</button></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

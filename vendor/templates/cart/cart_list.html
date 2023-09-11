@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        .product-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid black;
+        }
+        
+        .product-image {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+        
+        .product-details {
+            flex-grow: 1;
+        }
+        
+        .product-name {
+            font-weight: bold;
+        }
+        
+        .payment-button {
+            margin-left: auto;
+        }
+        
+        .payment-button button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        
+        .payment-button button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="product-list">
+        {% for cart in carts %}
+        <div class="product-card">
+            <img class="product-image" src="{{ cart.image.url }}" alt="Product Image">
+            <div class="product-details">
+                <p class="product-name">{{ cart.name }}</p>
+                <p>Price: {{ cart.price }}</p>
+                <p>Quantity: {{ cart.quantity }}</p>
+                <p>Payment Options: {{ cart.paymentoptions }}</p>
+            </div>
+            <div class="payment-button">
+                <a href="{% url 'create_payment_view' %}"> <button>Pay</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

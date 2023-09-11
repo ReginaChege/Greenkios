@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        :root {
+            --primary-color: #f9a826;
+            --secondary-color: #007bff;
+            --background-color: #f9f9f9;
+            --text-color: #ffffff;
+        }
+        
+        .product-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: var(--background-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+        
+        .product-details {
+            flex-grow: 1;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .payment-button {
+            margin-left: auto;
+        }
+        
+        .payment-button button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+        
+        .payment-button button:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 10px;
+        }
+        
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar li {
+            display: inline;
+            margin-right: 10px;
+        }
+        
+        .navbar li a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+        
+        .navbar li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="{% url 'product-upload_view' %}">Product</a></li>
+                <li><a href="{% url 'place_order_views' %}">Orders</a></li>
+                <li><a href="{% url 'cart_list_view' %}">Cart</a></li>
+                <li><a href="{% url 'vendor_onboard_view' %}">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="product-list">
+        {% for cart in carts %}
+        <div class="product-card">
+            <img class="product-image" src="{{ cart.image.url }}" alt="Product Image">
+            <div class="product-details">
+                <p class="product-name">{{ cart.name }}</p>
+                <p>Price: {{ cart.price }}</p>
+                <p>Quantity: {{ cart.quantity }}</p>
+                <p>Payment Options: {{ cart.paymentoptions }}</p>
+            </div>
+            <div class="payment-button">
+                <a href="{% url 'create_payment_view' %}"> <button>Pay</button></a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
